@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Github, Linkedin, Mail, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,9 +25,36 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+
+    try {
+      const res = await fetch('https://formspree.io/f/xkgrddlp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast({
+          title: "Error sending message",
+          description: "Something went wrong.",
+        });
+      }
+    } catch {
+      toast({
+        title: "Error sending message",
+        description: "Network error. Try again.",
+      });
+    }
+
     toast({
       title: "Message sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
@@ -38,11 +66,11 @@ const Contact = () => {
     console.log(`Clicked on ${platform}`);
     // Add your actual links here
     if (platform === 'github') {
-      window.open('https://github.com/pravinkumar', '_blank');
+      window.open('https://github.com/Pravin-kumar-25', '_blank');
     } else if (platform === 'linkedin') {
-      window.open('https://linkedin.com/in/pravinkumar', '_blank');
+      window.open('https://www.linkedin.com/in/pravin-kumar-m-751576203/', '_blank');
     } else if (platform === 'email') {
-      window.location.href = 'mailto:pravin@example.com';
+      window.location.href = 'mailto:pravinkumar3725@gmail.com';
     }
   };
 
@@ -128,7 +156,7 @@ const Contact = () => {
                   onClick={() => handleSocialClick('github')}
                   className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left cursor-pointer relative z-30"
                 >
-                  <Github className="w-6 h-6 text-primary" />
+                  <FaGithub className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">GitHub</p>
                     <p className="text-sm text-muted-foreground">@pravinkumar</p>
@@ -138,7 +166,7 @@ const Contact = () => {
                   onClick={() => handleSocialClick('linkedin')}
                   className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left cursor-pointer relative z-30"
                 >
-                  <Linkedin className="w-6 h-6 text-primary" />
+                  <FaLinkedinIn className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">LinkedIn</p>
                     <p className="text-sm text-muted-foreground">Pravin Kumar</p>
@@ -151,7 +179,7 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-sm text-muted-foreground">pravin@example.com</p>
+                    <p className="text-sm text-muted-foreground">pravinkumar3725@gmail.com</p>
                   </div>
                 </button>
               </CardContent>

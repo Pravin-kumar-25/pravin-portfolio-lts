@@ -34,8 +34,20 @@ const Contact = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
+  const handleSocialClick = (platform: string) => {
+    console.log(`Clicked on ${platform}`);
+    // Add your actual links here
+    if (platform === 'github') {
+      window.open('https://github.com/pravinkumar', '_blank');
+    } else if (platform === 'linkedin') {
+      window.open('https://linkedin.com/in/pravinkumar', '_blank');
+    } else if (platform === 'email') {
+      window.location.href = 'mailto:pravin@example.com';
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-20 px-4 relative z-10">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
@@ -47,7 +59,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="animate-scale-in glow-effect">
+          <Card className="animate-scale-in glow-effect relative z-20">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
               <CardDescription>
@@ -55,7 +67,7 @@ const Contact = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 relative z-30">
                 <div>
                   <Label htmlFor="name">Your Name</Label>
                   <Input
@@ -65,7 +77,8 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="mt-1"
+                    className="mt-1 relative z-40"
+                    placeholder="Enter your name"
                   />
                 </div>
                 <div>
@@ -77,7 +90,8 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="mt-1"
+                    className="mt-1 relative z-40"
+                    placeholder="Enter your email"
                   />
                 </div>
                 <div>
@@ -89,10 +103,11 @@ const Contact = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="mt-1"
+                    className="mt-1 relative z-40"
+                    placeholder="Enter your message"
                   />
                 </div>
-                <Button type="submit" className="w-full group">
+                <Button type="submit" className="w-full group relative z-40">
                   <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
                 </Button>
@@ -101,7 +116,7 @@ const Contact = () => {
           </Card>
 
           <div className="animate-slide-up">
-            <Card className="h-full glow-effect">
+            <Card className="h-full glow-effect relative z-20">
               <CardHeader>
                 <CardTitle>Let's Connect</CardTitle>
                 <CardDescription>
@@ -109,27 +124,36 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                <button
+                  onClick={() => handleSocialClick('github')}
+                  className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left cursor-pointer relative z-30"
+                >
                   <Github className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">GitHub</p>
                     <p className="text-sm text-muted-foreground">@pravinkumar</p>
                   </div>
-                </div>
-                <div className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                </button>
+                <button
+                  onClick={() => handleSocialClick('linkedin')}
+                  className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left cursor-pointer relative z-30"
+                >
                   <Linkedin className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">LinkedIn</p>
                     <p className="text-sm text-muted-foreground">Pravin Kumar</p>
                   </div>
-                </div>
-                <div className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                </button>
+                <button
+                  onClick={() => handleSocialClick('email')}
+                  className="flex items-center space-x-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left cursor-pointer relative z-30"
+                >
                   <Mail className="w-6 h-6 text-primary" />
                   <div>
                     <p className="font-medium">Email</p>
                     <p className="text-sm text-muted-foreground">pravin@example.com</p>
                   </div>
-                </div>
+                </button>
               </CardContent>
             </Card>
           </div>

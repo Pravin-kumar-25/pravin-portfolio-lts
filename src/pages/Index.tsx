@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import IntroSection from '@/components/IntroSection';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <div className="min-h-screen bg-background text-foreground">
         <Navigation />
         <main>
+          <IntroSection />
           <Hero />
           <About />
           <Projects />

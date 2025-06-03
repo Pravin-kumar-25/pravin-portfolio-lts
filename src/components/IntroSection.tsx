@@ -1,18 +1,18 @@
 
 import React from 'react';
-import { FaCss3, FaDocker, FaGit, FaGithub, FaJava, FaReact } from 'react-icons/fa';
+import { FaCss3, FaDocker, FaFigma, FaGit, FaGithub, FaJava, FaReact } from 'react-icons/fa';
 import { BiLogoPostgresql } from "react-icons/bi";
 import { SiPostman } from "react-icons/si";
 
 const IntroSection = () => {
   const techIcons = [
     { name: 'JavaScript', icon: <FaDocker color='blue' />, delay: 0 },
-    { name: 'React', icon: <FaReact color='violet'/>, delay: 0.5 },
-    { name: 'Node.js', icon: 'd' , delay: 1 },
+    { name: 'React', icon: <FaReact color='violet' />, delay: 0.5 },
+    { name: 'Figma', icon: <FaFigma />, delay: 1 },
     { name: 'Postman', icon: <SiPostman color='orange' />, delay: 1.5 },
     { name: 'DB', icon: <BiLogoPostgresql color='darkviolet' />, delay: 2 },
     { name: 'Java', icon: <FaJava color='orange' />, delay: 2.5 },
-    { name: 'CSS3', icon: <FaCss3 color='lightblue'/>, delay: 3 },
+    { name: 'CSS3', icon: <FaCss3 color='lightblue' />, delay: 3 },
     { name: 'Git', icon: <FaGithub />, delay: 3.5 },
 
   ];
@@ -25,8 +25,8 @@ const IntroSection = () => {
           <div className="flex justify-center">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl animate-fade-in">
-                <img 
-                  src="/personal/me.jpg" 
+                <img
+                  src="/personal/me.jpg"
                   alt="Pravin Kumar"
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -39,14 +39,15 @@ const IntroSection = () => {
           <div className="flex justify-center ">
             <div className="relative w-96 h-96 flex items-center justify-center">
               {/* Central Logo */}
-              <div className="relative z-10 bg-gradient-to-br from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
-                <div className="text-center">
+              <div className="relative z-10 bg-gray-600 from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
+                {/* <div className="text-center">
                   <h1 className="text-4xl font-bold text-white mb-2">PK</h1>
                   <div className="text-sm text-white/90 font-medium">
                     <div>PRAVIN</div>
                     <div>KUMAR</div>
                   </div>
-                </div>
+                </div> */}
+                <img src="/personal/logo.svg" className='w-8'/>
               </div>
 
               {/* Revolving Tech Icons */}
@@ -55,7 +56,7 @@ const IntroSection = () => {
                 const radius = 120;
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
-                
+
                 return (
                   <div
                     key={tech.name}

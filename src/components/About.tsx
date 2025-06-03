@@ -1,15 +1,23 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
+import StackIcon from "tech-stack-icons";
 
 const About = () => {
   const technologies = [
-    { name: 'React', color: 'bg-blue-500' },
-    { name: 'Spring Boot', color: 'bg-green-500' },
-    { name: 'Selenium', color: 'bg-purple-500' },
-    { name: 'Docker', color: 'bg-blue-600' },
-    { name: 'TailwindCSS', color: 'bg-cyan-500' },
-    { name: 'ChatGPT', color: 'bg-emerald-500' },
+    { name: 'reactjs'},
+    { name: 'nextjs2'},
+    { name: 'spring'},
+    { name: 'html5'},
+    { name: 'css3'},
+    { name: 'docker'},
+    { name: 'tailwindcss'},
+    { name: 'postman'},
+    { name: 'openai'},
+    { name: 'figma'},
+    { name: 'git' },
+    { name: 'java' },
+    { name: 'postgresql' },
   ];
 
   return (
@@ -29,7 +37,7 @@ const About = () => {
 
         <div className="mb-12 animate-scale-in">
           <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
-            Tools I vibe with:
+            Techs I vibe with:
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {technologies.map((tech, index) => (
@@ -38,11 +46,9 @@ const About = () => {
                 className="group animate-fade-in glow-effect"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <Card className="px-4 py-2 hover:scale-110 transition-all duration-300 cursor-pointer border-2 hover:border-primary/50">
-                  <div className="flex items-center space-x-2">
-                    <div className={`w-3 h-3 rounded-full ${tech.color}`}></div>
-                    <span className="text-sm font-medium">{tech.name}</span>
-                  </div>
+                <Card className="flex flex-col items-center gap-2 px-4 py-2 hover:scale-110 transition-all duration-300 cursor-pointer border-2 hover:border-primary/50">
+                  <StackIcon className='size-10' name={tech.name} />
+                  <span className="text-sm font-medium">{tech.name}</span>
                 </Card>
               </div>
             ))}

@@ -3,8 +3,10 @@ import React from 'react';
 import { FaCss3, FaDocker, FaFigma, FaGit, FaGithub, FaJava, FaReact } from 'react-icons/fa';
 import { BiLogoPostgresql } from "react-icons/bi";
 import { SiPostman } from "react-icons/si";
+import { useTheme } from './ThemeProvider';
 
 const IntroSection = () => {
+  const { theme, toggleTheme } = useTheme();
   const techIcons = [
     { name: 'JavaScript', icon: <FaDocker color='blue' />, delay: 0 },
     { name: 'React', icon: <FaReact color='violet' />, delay: 0.5 },
@@ -21,7 +23,7 @@ const IntroSection = () => {
     <section className="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 bg-gradient-to-br from-background via-muted/20 to-background">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center relative top-10">
-          {/* Left side - Profile Picture */}
+
           <div className="flex justify-center">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl animate-fade-in">
@@ -35,12 +37,12 @@ const IntroSection = () => {
             </div>
           </div>
 
-          {/* Right side - Logo with Tech Icons */}
+
           <div className="flex justify-center ">
             <div className="relative w-96 h-96 flex items-center justify-center">
-              {/* Central Logo */}
-              <div className="relative z-10 bg-white dark:bg-gray-600 from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
-                <img src="/personal/logo.svg" className='w-8'/>
+
+              <div className="relative z-10 bg-white dark:bg-gray-800 from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
+                {theme === 'dark' ? <img src="/personal/darkLogo.png" className='w-8'/> : <img src="/personal/logo.svg" className='w-8'/>}
               </div>
 
               {/* Revolving Tech Icons */}
@@ -72,14 +74,12 @@ const IntroSection = () => {
                 );
               })}
 
-              {/* Animated rings around logo */}
               <div className="absolute inset-0 rounded-full border border-primary/30 animate-ping"></div>
               <div className="absolute inset-4 rounded-full border border-accent/30 animate-ping" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
 
-        {/* Bottom text */}
         <div className="text-center mt-16 animate-slide-up">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             Welcome to My Digital Space

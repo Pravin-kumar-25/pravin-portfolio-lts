@@ -21,7 +21,7 @@ const Index = () => {
           <Contact />
         </main>
         <footer className="py-8 text-center text-muted-foreground border-t border-border">
-          <p>&copy; 2024 Pravin Kumar. Built with React and passion.</p>
+          <p>&copy; 2025 Pravin Kumar. Built with React and passion.</p>
         </footer>
       </div>
     </ThemeProvider>

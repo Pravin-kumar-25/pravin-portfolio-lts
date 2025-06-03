@@ -39,14 +39,7 @@ const IntroSection = () => {
           <div className="flex justify-center ">
             <div className="relative w-96 h-96 flex items-center justify-center">
               {/* Central Logo */}
-              <div className="relative z-10 bg-gray-600 from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
-                {/* <div className="text-center">
-                  <h1 className="text-4xl font-bold text-white mb-2">PK</h1>
-                  <div className="text-sm text-white/90 font-medium">
-                    <div>PRAVIN</div>
-                    <div>KUMAR</div>
-                  </div>
-                </div> */}
+              <div className="relative z-10 bg-white dark:bg-gray-600 from-primary to-accent p-8 rounded-full shadow-2xl animate-scale-in">
                 <img src="/personal/logo.svg" className='w-8'/>
               </div>
 

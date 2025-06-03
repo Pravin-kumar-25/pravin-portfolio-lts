@@ -1,16 +1,20 @@
 
 import React from 'react';
+import { FaCss3, FaDocker, FaGit, FaGithub, FaJava, FaReact } from 'react-icons/fa';
+import { BiLogoPostgresql } from "react-icons/bi";
+import { SiPostman } from "react-icons/si";
 
 const IntroSection = () => {
   const techIcons = [
-    { name: 'JavaScript', icon: '🟨', delay: 0 },
-    { name: 'React', icon: '⚛️', delay: 0.5 },
-    { name: 'Node.js', icon: '🟢', delay: 1 },
-    { name: 'TypeScript', icon: '🔷', delay: 1.5 },
-    { name: 'MongoDB', icon: '🍃', delay: 2 },
-    { name: 'HTML5', icon: '🔶', delay: 2.5 },
-    { name: 'CSS3', icon: '🔵', delay: 3 },
-    { name: 'Git', icon: '🐙', delay: 3.5 },
+    { name: 'JavaScript', icon: <FaDocker color='blue' />, delay: 0 },
+    { name: 'React', icon: <FaReact color='violet'/>, delay: 0.5 },
+    { name: 'Node.js', icon: 'd' , delay: 1 },
+    { name: 'Postman', icon: <SiPostman color='orange' />, delay: 1.5 },
+    { name: 'DB', icon: <BiLogoPostgresql color='darkviolet' />, delay: 2 },
+    { name: 'Java', icon: <FaJava color='orange' />, delay: 2.5 },
+    { name: 'CSS3', icon: <FaCss3 color='lightblue'/>, delay: 3 },
+    { name: 'Git', icon: <FaGithub />, delay: 3.5 },
+
   ];
 
   return (

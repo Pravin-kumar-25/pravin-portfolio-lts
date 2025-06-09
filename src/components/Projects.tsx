@@ -12,8 +12,15 @@ const Projects = () => {
       description: 'A personal portfolio website showcasing my skills, projects, and experience with a sleek design.',
       technologies: ["ReactJS", "ThreeJS", "Gsap"],
       image: '/projectImages/portfolio.png',
-      demoLink: 'https://pravin-kumar.netlify.app/',
+      demoLink: 'https://pravin-old-portfolio.netlify.app/',
       codeLink: 'https://github.com/Pravin-kumar-25/portfolio-2',
+    },
+    {
+      title: 'QA dashboard',
+      description: 'A comprehensive dashboard for managing and analyzing QA processes, built with React and Tailwind CSS. Interacts with github native apis to fetch issues and pull requests, providing a seamless user experience.',
+      technologies: ['Github api', 'Next js', 'Tailwind CSS'],
+      image: '/projectImages/qadashboard.png',
+      demoLink: 'https://drive.google.com/file/d/10zMdAn6r7mh1drlLM0ug-1XrsomrvLti/view?usp=drive_link'
     },
     {
       title: '3D Room',
@@ -67,7 +74,7 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    {project.codeLink != '' ?
+                    {project.codeLink && project.codeLink != '' ?
                       <Button
                         variant="outline"
                         size="sm"
